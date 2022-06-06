@@ -1,0 +1,293 @@
+// ****************************************************************************
+// *                               import rules                               *
+// ****************************************************************************
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+// ****************************************************************************
+// *                                   notes                                  *
+// ****************************************************************************
+// - Mobile: 375px
+// - Desktop: 1440px
+
+// ****************************************************************************
+// *                                 z-indexes                                *
+// ****************************************************************************
+$minusAlpha: -99999;
+
+// ****************************************************************************
+// *                                  mixins                                  *
+// ****************************************************************************
+@mixin flex(
+  $center: false,
+  $dir: false,
+  $gap: false,
+  $jc: false,
+  $ai: false,
+  $gapVal: 10px,
+  $dirVal: column,
+  $jcVal: space-between,
+  $aiVal: center
+) {
+  display: flex;
+  @if $center {
+    justify: {
+      content: center;
+    }
+    align: {
+      items: center;
+    }
+  }
+  @if $dir {
+    flex: {
+      direction: $dirVal;
+    }
+  }
+  @if $gap {
+    gap: $gapVal;
+  }
+  @if $jc {
+    justify-content: $jcVal;
+  }
+  @if $ai {
+    align: {
+      items: $aiVal;
+    }
+  }
+}
+
+// ****************************************************************************
+// *                                  colors                                  *
+// ****************************************************************************
+$cyan: hsl(179, 62%, 43%);
+$brightYellow: hsl(71, 73%, 54%);
+
+$lightGray: hsl(204, 43%, 93%);
+$grayIshBlue: hsl(218, 22%, 67%);
+$black: #000;
+$white: #fff;
+
+$bodyBg: $lightGray;
+$bodyColor: $black;
+
+// join
+$joinBg: $white;
+$joinColor: $grayIshBlue;
+$joinTitleColor: $cyan;
+$joinSubtitleColor: $brightYellow;
+
+// subs
+$subsBg: $cyan;
+$subsColor: $lightGray;
+$subsButtonBg: $brightYellow;
+$subsButtonColor: $white;
+
+// price
+$pricePeriodColor: hsl(179, 55%, 70%);
+
+// why
+$whyBg: hsl(179, 55%, 50%);
+$whyColor: $lightGray;
+
+// component
+$componentBg: $white;
+
+// ****************************************************************************
+// *                                   fonts                                  *
+// ****************************************************************************
+$primaryFallbackFont: sans-serif;
+
+$primaryFont: "Karla", $primaryFallbackFont;
+
+$fw-400: 400;
+$fw-700: 700;
+
+// ****************************************************************************
+// *                                   base                                  *
+// ****************************************************************************
+*,
+*::before,
+*::after {
+  $marPad: 0;
+
+  margin: $marPad;
+  padding: $marPad;
+  box: {
+    sizing: border-box;
+  }
+}
+
+.hide {
+  position: fixed;
+  left: -10000vw;
+  top: -10000vh;
+  color: transparent;
+  background: transparent;
+  z-index: $minusAlpha;
+}
+
+body {
+  @include flex($center: true);
+  min: {
+    height: 100vh;
+  }
+  background: $bodyBg;
+  color: $bodyColor;
+  font: {
+    family: $primaryFont;
+    size: 0.9rem;
+    size: clamp(0.9rem, 0.6058823529411765rem + 0.9411764705882351vw, 1rem);
+  }
+}
+
+// ****************************************************************************
+// *                                  blocks                                  *
+// ****************************************************************************
+.component {
+  display: grid;
+  background: $componentBg;
+  width: 20.625rem;
+  width: clamp(
+    20.625rem,
+    14.683098591549296rem + 25.352112676056336vw,
+    37.5rem
+  );
+  border: {
+    radius: 6px;
+  }
+  overflow: hidden;
+}
+
+.join {
+  background: $joinBg;
+  color: $joinColor;
+  display: grid;
+  gap: 20px;
+
+  &__title {
+    color: $joinTitleColor;
+    font: {
+      size: 1.35rem;
+      weight: $fw-700;
+    }
+    margin: 5px 0;
+  }
+
+  &__subtitle {
+    color: $joinSubtitleColor;
+    font: {
+      weight: $fw-700;
+    }
+  }
+
+  &__desc {
+    line: {
+      height: 1.7rem;
+    }
+  }
+}
+
+.subs {
+  background: $subsBg;
+  color: $subsColor;
+  display: grid;
+  gap: 5px;
+
+  &__title {
+    margin: {
+      top: 10px;
+      bottom: 15px;
+    }
+  }
+
+  &__desc {
+    margin: 5px 0;
+  }
+
+  &__button {
+    background: $subsButtonBg;
+    color: $subsButtonColor;
+    font: {
+      weight: $fw-700;
+    }
+    text: {
+      decoration: none;
+      align: center;
+    }
+    padding: 13px;
+    border: 2px solid $subsButtonBg {
+      radius: 6px;
+    }
+    box: {
+      shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    margin: {
+      top: 15px;
+    }
+    transition: background 0.3s;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.why {
+  background: $whyBg;
+  color: $whyColor;
+  display: grid;
+  gap: 5px;
+  &__title {
+    margin: {
+      top: 10px;
+      bottom: 15px;
+    }
+  }
+
+  &__desc {
+  }
+}
+
+.price {
+  @include flex($ai: true);
+  gap: 15px;
+  &__curr {
+    font: {
+      size: 1.8rem;
+      weight: $fw-700;
+    }
+  }
+
+  &__period {
+    color: $pricePeriodColor;
+  }
+}
+
+.pad {
+  &-1 {
+    padding: 1.25rem;
+    padding: clamp(
+      1.25rem,
+      0.8098591549295775rem + 1.3779342723004695vw,
+      2.5rem
+    );
+  }
+}
+
+// ****************************************************************************
+// *                               media queries                              *
+// ****************************************************************************
+@media (min-width: 600px) {
+  .component {
+    width: 36.25rem;
+    width: clamp(
+      36.25rem,
+      34.910714285714285rem + 3.571428571428572vw,
+      38.125rem
+    );
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .join {
+    grid-column: 1 / -1;
+  }
+}

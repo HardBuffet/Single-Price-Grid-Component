@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  position: fixed;
+  left: -10000vw;
+  top: -10000vh;
+  color: transparent;
+  background: transparent;
+  z-index: -99999;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e5eff5;
+  color: #000;
+  font-family: "Karla", sans-serif;
+  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 0.6058823529rem + 0.9411764706vw, 1rem);
+}
+
+.component {
+  display: grid;
+  background: #fff;
+  width: 20.625rem;
+  width: clamp(20.625rem, 14.6830985915rem + 25.3521126761vw, 37.5rem);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.join {
+  background: #fff;
+  color: #98a6bd;
+  display: grid;
+  gap: 20px;
+}
+.join__title {
+  color: #2ab2af;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 5px 0;
+}
+.join__subtitle {
+  color: #c0df34;
+  font-weight: 700;
+}
+.join__desc {
+  line-height: 1.7rem;
+}
+
+.subs {
+  background: #2ab2af;
+  color: #e5eff5;
+  display: grid;
+  gap: 5px;
+}
+.subs__title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.subs__desc {
+  margin: 5px 0;
+}
+.subs__button {
+  background: #c0df34;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  padding: 13px;
+  border: 2px solid #c0df34;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+.subs__button:hover {
+  background: transparent;
+}
+
+.why {
+  background: #39c6c3;
+  color: #e5eff5;
+  display: grid;
+  gap: 5px;
+}
+.why__title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.price {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.price__curr {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.price__period {
+  color: #88dddb;
+}
+
+.pad-1 {
+  padding: 1.25rem;
+  padding: clamp(1.25rem, 0.8098591549rem + 1.3779342723vw, 2.5rem);
+}
+
+@media (min-width: 600px) {
+  .component {
+    width: 36.25rem;
+    width: clamp(36.25rem, 34.9107142857rem + 3.5714285714vw, 38.125rem);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .join {
+    grid-column: 1/-1;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

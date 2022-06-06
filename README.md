@@ -21,7 +21,12 @@
 
 ### Built with
 
--
+- SASS
+- PUG
+- Semantic HTML5 markup
+- CSS Grid
+- Mobile-first workflow
+- BEM
 
 ## Author
 
